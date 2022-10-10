@@ -8,6 +8,7 @@ error NotOwner();
 contract Auction is Auction_721 {
     constructor() {
         i_owner = msg.sender;
+
     }
 
     modifier onlyOwner() {
@@ -17,6 +18,9 @@ contract Auction is Auction_721 {
         _;
     }
     //VARIAVEIS
+
+    uint256 public tempo_leilao;
+
     address public i_owner;
 
     uint256 public highest_bid;
@@ -35,6 +39,8 @@ contract Auction is Auction_721 {
 
     function Start_Auction(uint256 _minimun_bid) public onlyOwner {
         require(titans_nft < 10, "Todos os NFTS ja foram usados");
+        require(auction_status==false,"o leilao esta ativo");
+        tempo_leilao = block.timestamp + 2 minutes;
         highest_bid = _minimun_bid;
 
         auction_status = true;
@@ -50,7 +56,7 @@ contract Auction is Auction_721 {
             msg.sender != highest_bidder,
             "You are the current highest bidder"
         );
-
+        require(block.timestamp<=tempo_leilao,"");
         ether_balance = msg.value;
         //logica para devolver dinheiro ao lance anterior
         if (fila_bidders != 0) {
@@ -87,6 +93,8 @@ contract Auction is Auction_721 {
         highest_bidder = address(0);
 
         titans_nft = titans_nft + 1;
+
+        tempo_leilao = 0;
     }
 
     //ativadas quando se utiliza o metamask para enviar ether ao contrato
