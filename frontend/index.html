@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Leilão</title>
+</head>
+
+<body>
+
+    <header>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNcI3_xIXsjIPWa2BvloanzjudsOHn7XfwDA&usqp=CAU"
+            alt="">
+    </header>
+    <button class="visitors_btn">Ether Balance</button>
+    <div class="dives"></div>
+    <button class="visitors_btn">Highest Bidder</button>
+    <div class="dives"></div>
+    <button class="visitors_btn">Highest Bid</button>
+    <div class="dives"></div>
+    <button class="visitors_btn">Bid</button><input type="number" id="minimun_bid_input"
+        placeholder="Place your bid here" step="0.01">
+    <div></div>
+    <button id="Start_Auction_btn">Start Auction</button>
+    <input type="number" id="start_minimun_bid_input" placeholder="Minimun bid" step="0.01">
+
+    <button id="Stop_Auction_btn">Stop Auction</button>
+
+    <div class="dives"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"
+        integrity="sha512-bSQ2kf76XufUYS/4XinoHLp5S4lNOyRv0/x5UJACiOMy8ueqTNwRFfUZWmWpwnczjRp9SjiF1jrXbGEim7Y0Xg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
